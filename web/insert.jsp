@@ -1,7 +1,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.List"%>
-<%@page import="model.HumanType"%>
+<%@page import="model.Major"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,6 +10,8 @@
     </head>
     <body>
         <form action="insert" method="post">
+            Rollcode: <input type="text" name="id">
+            <br>
             Name: <input type="text" name="name">
             <br>
             DOB: <input type="date" name="dob">
@@ -22,17 +24,17 @@
                 <input type="radio" name="gender" value="Female">Female
             </label>  
             <br>
-            Type:
-            <%
-               List<HumanType> types = (List<HumanType>)request.getAttribute("types");
-               for (HumanType type : types) {
-            %>
-            <label>
-                <input type="radio" name="type" value="<%=type.getName()%>"><%=type.getName()%>
-            </label>
-            <%
-                }
-            %>
+            Major:
+            <select name="major">
+                <%
+                   List<Major> majors = (List<Major>)request.getAttribute("majors");
+                   for (Major major : majors) {
+                %>
+                <option type="radio" value="<%=major.getMajor()%>"><%=major.getMajor()%></option>    
+                <%
+                    }
+                %>
+            </select>
             <br>
             <input type="submit" value="insert">
         </form>

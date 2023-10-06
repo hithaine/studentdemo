@@ -3,22 +3,22 @@ package model;
 
 import java.sql.Date;
 
-public class Human {
+public class Student {
     private int id;
     private String name;
     private Date dob;
     private String gender;
-    private HumanType type;
+    private Major major;
 
-    public Human() {
+    public Student() {
     }
 
-    public Human(int id, String name, Date dob, String gender, HumanType type) {
+    public Student(int id, String name, Date dob, String gender, Major major) {
         this.id = id;
         this.name = name;
         this.dob = dob;
         this.gender = gender;
-        this.type = type;
+        this.major = major;
     }
 
     public int getId() {
@@ -53,11 +53,13 @@ public class Human {
         this.gender = gender;
     }
 
-    public HumanType getType() {
-        return type;
+    public Major getMajor() {
+        return major;
     }
 
-    public void setType(HumanType type) {
-        this.type = type;
-    } 
+    public void setMajor(Major major) {
+        this.major = major;
+    }
+    
+    
 }
