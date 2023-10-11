@@ -1,4 +1,3 @@
-
 package controller;
 
 import dal.StudentDAO;
@@ -11,19 +10,40 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.util.List;
 import model.Student;
 
-/**
- *
- * @author HP
- */
 @WebServlet(name = "ListController", urlPatterns = {"/list"})
 public class ListController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         StudentDAO studentDao = new StudentDAO();
+        String sortBy = request.getParameter("sortby");
+        //check if user call the sort function or not 
+        if (sortBy != null) {
+            switch (sortBy) {
+                case "gender": {
+                    List<Student> students = studentDao.sortStudentByGender();
+                    request.setAttribute("students", students);
+                    request.getRequestDispatcher("list.jsp").forward(request, response);
+                    break;
+                }
+                case "major": {
+                    List<Student> students = studentDao.sortStudentByMajor();
+                    request.setAttribute("students", students);
+                    request.getRequestDispatcher("list.jsp").forward(request, response);
+                    break;
+                }
+                case "id": {
+                    List<Student> students = studentDao.sortStudentById();
+                    request.setAttribute("students", students);
+                    request.getRequestDispatcher("list.jsp").forward(request, response);
+                    break;
+                }
+            }
+        } else {
         List<Student> students = studentDao.getStudents();
         request.setAttribute("students", students);
         request.getRequestDispatcher("list.jsp").forward(request, response);
+        }
     }
 
     @Override
@@ -35,7 +55,7 @@ public class ListController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
     }
 
     @Override

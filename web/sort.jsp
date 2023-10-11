@@ -7,7 +7,7 @@
         <title>Sort</title>
     </head>
     <body>
-        <form action="sort" method="post">
+        <form action="list">
             Sort by:
             <select name="sortby">
                 <option type="radio" value="gender">Gender</option>    

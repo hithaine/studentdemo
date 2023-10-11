@@ -18,10 +18,10 @@
             <br>
             Gender:
             <label>
-                <input type="radio" name="gender" value="Male">Male
+                <input type="radio" name="gender" value="Nam">Nam
             </label>
             <label>
-                <input type="radio" name="gender" value="Female">Female
+                <input type="radio" name="gender" value="Nu">Nu
             </label>  
             <br>
             Major:
