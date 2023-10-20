@@ -51,7 +51,7 @@
             </tr>
             <tr>
                 <td colspan="6">
-                    <form action="sort">
+                    <form action="sort.jsp">
                         <input type="submit" value="sort">
                     </form>
                 </td>
